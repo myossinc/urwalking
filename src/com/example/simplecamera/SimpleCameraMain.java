@@ -63,7 +63,7 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 		// Remove notification bar
 		// this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 		// WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+		//Test
 		setContentView(R.layout.activity_main);
 
 		try {
