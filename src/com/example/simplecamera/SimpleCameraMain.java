@@ -53,6 +53,8 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 
 	private JavaCameraView cameraView;
 
+	
+	//mein Kommentar
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
