@@ -1,9 +1,7 @@
 package com.example.simplecamera;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
@@ -15,7 +13,6 @@ import org.opencv.core.Mat;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -25,15 +22,15 @@ import android.view.Window;
 
 public class SimpleCameraMain extends Activity implements CvCameraViewListener2 {
 
+	// Instance Variables
 	private static MenuItem menuToMap;
-
 	private static DatabaseHandler db;
 	private static DBAdapter adapter;
 	private static ArrayList<DBItem> list;
-	private static AssetManager assets;
-
-	private static Mat img2, gray1, gray2, hist1, hist2;
-	private static List<Mat> l1, l2;
+//	private static AssetManager assets;
+//	private static Mat img2, gray1, gray2, hist1, hist2;
+//	private static List<Mat> l1, l2;
+	private JavaCameraView cameraView;
 
 	private BaseLoaderCallback loaderCallback = new BaseLoaderCallback(this) {
 		public void onManagerConnected(int status) {
@@ -51,10 +48,6 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 
 	};
 
-	private JavaCameraView cameraView;
-
-	
-	//mein Kommentar
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,7 +58,6 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 		// Remove notification bar
 		// this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 		// WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		//Test
 		setContentView(R.layout.activity_main);
 
 		try {
@@ -73,20 +65,21 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		setupViews();
 		setupInstanceVariables();
 		setupCamera();
 	}
 
 	private void setupInstanceVariables() {
-		assets = getResources().getAssets();
-		img2 = new Mat();
-		gray1 = new Mat();
-		gray2 = new Mat();
-		hist1 = new Mat();
-		hist2 = new Mat();
-		l1 = new ArrayList<Mat>();
-		l2 = new ArrayList<Mat>();
+//		assets = getResources().getAssets();
+//		img2 = new Mat();
+//		gray1 = new Mat();
+//		gray2 = new Mat();
+//		hist1 = new Mat();
+//		hist2 = new Mat();
+//		l1 = new ArrayList<Mat>();
+//		l2 = new ArrayList<Mat>();
 	}
 
 	private void setupDatabase() throws IOException {
@@ -110,12 +103,14 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 		// img = (ImageView)findViewById(R.id.testimage);
 	}
 
+	// Setup Option Menu Items
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menuToMap = menu.add(R.string.menu_toMap);
 		return true;
 	}
 
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item == menuToMap) {
@@ -132,6 +127,7 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 				loaderCallback);
 	}
 
+	// Disable Camera when closing the application
 	public void onDestroy() {
 		super.onDestroy();
 		if (cameraView != null) {
@@ -148,6 +144,7 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 
 	}
 
+	// Handle Camera Frames
 	@Override
 	public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
 		try {
@@ -161,18 +158,21 @@ public class SimpleCameraMain extends Activity implements CvCameraViewListener2 
 		return inputFrame.rgba();
 	}
 
+	// Calculate similarity frame <-> database-image
 	private void compareImgWithDB(CvCameraViewFrame inputFrame)
 			throws InterruptedException, IOException {
-		gray1 = inputFrame.gray();
+
 		for (int i = 0; i < list.size(); i++) {
-			
+
 		}
 	}
 
+	// Display current calculated position
 	private void processGeoData() {
 
 	}
 
+	// Switch to Map Activity
 	private void openMapView() {
 		Intent i = new Intent(this, SimpleCameraMap.class);
 		startActivity(i);

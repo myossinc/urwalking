@@ -8,10 +8,10 @@ public class DBItem {
 	private static String path;
 
 	public DBItem(String name, double lon, double lat, String path) {
-		this.name = name;
-		this.longitude = lon;
-		this.latitude = lat;
-		this.path = path;
+		DBItem.name = name;
+		DBItem.longitude = lon;
+		DBItem.latitude = lat;
+		DBItem.path = path;
 	}
 
 	public static String getName() {
