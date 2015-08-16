@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">OfflineNavigation</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="headline">URWalking Indoor Navigation</string>
     <string name="action_settings">Settings</string>
+    <string name="node_hint">Du bist bei diesem Node</string>
+    <string name="button_text">Fancy Button</string>
+
 </resources>
