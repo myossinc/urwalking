@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64d3d307-c615-449e-8905-574be8a83cd4" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Iris\Documents\urwalking\urwalking\OfflineNavigation\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Iris\Documents\urwalking\urwalking\OfflineNavigation\.idea\runConfigurations.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/app/src/main/java/mamamairis/offlinenavigation/MainActivity.java" afterPath="$PROJECT_DIR$/OfflineNavigation/app/src/main/java/mamamairis/offlinenavigation/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/OfflineNavigation.iml" afterPath="$PROJECT_DIR$/OfflineNavigation/OfflineNavigation.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/app/app.iml" afterPath="$PROJECT_DIR$/OfflineNavigation/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/.idea/compiler.xml" afterPath="$PROJECT_DIR$/OfflineNavigation/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/.idea/gradle.xml" afterPath="$PROJECT_DIR$/OfflineNavigation/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/.idea/misc.xml" afterPath="$PROJECT_DIR$/OfflineNavigation/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/.idea/modules.xml" afterPath="$PROJECT_DIR$/OfflineNavigation/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OfflineNavigation/.idea/vcs.xml" afterPath="$PROJECT_DIR$/OfflineNavigation/.idea/vcs.xml" />
-    </list>
+    <list default="true" id="64d3d307-c615-449e-8905-574be8a83cd4" name="Default" comment="" />
     <ignored path="urwalking.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

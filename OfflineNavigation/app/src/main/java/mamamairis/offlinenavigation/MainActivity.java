@@ -1,13 +1,20 @@
 package mamamairis.offlinenavigation;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +40,36 @@ public class MainActivity extends AppCompatActivity {
 
     private void startNavigation() {
         ObjectAnimator anim = ObjectAnimator.ofFloat(button,rotation, 0f, 1080f);
-        anim.setDuration(1000);
+        anim.setDuration(500);
         anim.start();
+        blinkButton();
         showNode(watchButton);
     }
 
-    private void showNode(String node){
+    private void blinkButton() {
+        button.setBackgroundColor(Color.GREEN);
+        final Animation animation = new AlphaAnimation(1, 0);
+        animation.setDuration(10);
+        animation.setInterpolator(new LinearInterpolator());
+        animation.setRepeatCount(Animation.INFINITE);
+        animation.setRepeatMode(Animation.REVERSE);
+        button.startAnimation(animation);
+        stopBlinkingAfterOneSecond();
+    }
+
+    private void stopBlinkingAfterOneSecond() {
+        button.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                button.clearAnimation();
+                Uri uri = Uri.parse("http://urwalking.ur.de/navi/index.php?startarea=PT&startnode=43");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        }, 500);
+    }
+
+    private void showNode(String node) {
         text.setText(userNode + node);
     }
 
