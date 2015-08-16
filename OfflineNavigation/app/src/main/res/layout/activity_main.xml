@@ -21,7 +21,8 @@
         android:layout_centerHorizontal="true"
         android:text="@string/button_text"
         android:layout_below="@id/headline"
-        android:layout_marginBottom="50px"/>
+        android:layout_marginTop="20pt"
+        android:layout_marginBottom="40pt"/>
 
     <TextView
         android:id="@+id/node_name"
@@ -30,20 +31,20 @@
         android:layout_centerHorizontal="true"
         android:text="@string/node_hint"
         android:layout_below="@id/fanciest_button_ever"
-        android:layout_marginBottom="50px"/>
+        android:layout_marginBottom="10pt"/>
 
     <ImageView
         android:id="@+id/camera_image"
-        android:layout_width="200px"
-        android:layout_height="200px"
+        android:layout_width="75pt"
+        android:layout_height="75pt"
         android:layout_below="@id/node_name"
         android:layout_alignParentLeft="true"
         android:background="#AAAA55"/>
 
     <ImageView
         android:id="@+id/mathed_image"
-        android:layout_width="200px"
-        android:layout_height="200px"
+        android:layout_width="75pt"
+        android:layout_height="75pt"
         android:layout_below="@id/node_name"
         android:layout_alignParentRight="true"
         android:background="#01777A"/>
