@@ -42,7 +42,7 @@
         android:background="#AAAA55"/>
 
     <ImageView
-        android:id="@+id/mathed_image"
+        android:id="@+id/matched_image"
         android:layout_width="75pt"
         android:layout_height="75pt"
         android:layout_below="@id/node_name"

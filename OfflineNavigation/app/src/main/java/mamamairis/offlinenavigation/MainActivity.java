@@ -18,9 +18,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String watchButton = "Schau dir lieber den fancy Button an!";
-    private static final String userNode = "Der Nutzer befindet sich auf dem Node: ";
-    private static final String rotation =  "rotation";
+    private static final String WATCH_BUTTON = "Schau dir lieber den fancy Button an!";
+    private static final String USER_NODE = "Der Nutzer befindet sich auf dem Node: ";
+    private static final String ROTATION =  "rotation";
 
     private Button button;
     private TextView text;
@@ -39,16 +39,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startNavigation() {
-        ObjectAnimator anim = ObjectAnimator.ofFloat(button,rotation, 0f, 1080f);
+        System.out.println("startNavigation");
+        ObjectAnimator anim = ObjectAnimator.ofFloat(button,ROTATION, 0f, 1080f);
         anim.setDuration(500);
         anim.start();
         blinkButton();
-        showNode(watchButton);
+        showNode(WATCH_BUTTON);
     }
 
     private void blinkButton() {
         button.setBackgroundColor(Color.GREEN);
-        final Animation animation = new AlphaAnimation(1, 0);
+        final Animation animation = new AlphaAnimation(1f, 0.2f);
         animation.setDuration(10);
         animation.setInterpolator(new LinearInterpolator());
         animation.setRepeatCount(Animation.INFINITE);
@@ -70,7 +71,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showNode(String node) {
-        text.setText(userNode + node);
+        System.out.println("showNode");
+        text.setText(USER_NODE + node);
+        ObjectAnimator anim = ObjectAnimator.ofFloat(button, ROTATION, 0f, 1080f);
+        anim.setDuration(1000);
+        anim.start();
+        blinkButton();
     }
 
     @Override
