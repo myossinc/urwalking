@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String watchButton = "Schau dir lieber den fancy Button an!";
-    private static final String userNode = "Der Nutzer befindet sich auf dem Node: ";
-    private static final String rotation =  "rotation";
+    private static final String WATCH_BUTTON = "Schau dir lieber den fancy Button an!";
+    private static final String USER_NODE = "Der Nutzer befindet sich auf dem Node: ";
+    private static final String ROTATION =  "rotation";
 
     private Button button;
     private TextView text;
@@ -32,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startNavigation() {
-        ObjectAnimator anim = ObjectAnimator.ofFloat(button,rotation, 0f, 1080f);
+        ObjectAnimator anim = ObjectAnimator.ofFloat(button, ROTATION, 0f, 1080f);
         anim.setDuration(1000);
         anim.start();
-        showNode(watchButton);
+        showNode(WATCH_BUTTON);
     }
 
     private void showNode(String node){
-        text.setText(userNode + node);
+        text.setText(USER_NODE + node);
     }
 
     @Override
