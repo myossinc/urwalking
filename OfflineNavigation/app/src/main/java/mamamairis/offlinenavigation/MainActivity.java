@@ -1,16 +1,45 @@
 package mamamairis.offlinenavigation;
 
+import android.animation.ObjectAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String watchButton = "Schau dir lieber den fancy Button an!";
+    private static final String userNode = "Der Nutzer befindet sich auf dem Node: ";
+    private static final String rotation =  "rotation";
+
+    private Button button;
+    private TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        text = (TextView) findViewById(R.id.node_name);
+        button = (Button) findViewById(R.id.fanciest_button_ever);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startNavigation();
+            }
+        });
+    }
+
+    private void startNavigation() {
+        ObjectAnimator anim = ObjectAnimator.ofFloat(button,rotation, 0f, 1080f);
+        anim.setDuration(1000);
+        anim.start();
+        showNode(watchButton);
+    }
+
+    private void showNode(String node){
+        text.setText(userNode + node);
     }
 
     @Override
