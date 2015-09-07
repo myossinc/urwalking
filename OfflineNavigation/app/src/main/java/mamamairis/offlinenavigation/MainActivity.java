@@ -21,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String WATCH_BUTTON = "Schau dir lieber den fancy Button an!";
     private static final String USER_NODE = "Der Nutzer befindet sich auf dem Node: ";
     private static final String ROTATION =  "rotation";
+    private static final String BASE_URI = "http://urwalking.ur.de/navi/index.php?";
+    private static final String START_AREA = "startArea=";
+    private static final String START_NODE = "startNode=";
+
+    private String areaValue = "";
+    private String nodeValue = "";
 
     private Button button;
     private TextView text;
@@ -39,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startNavigation() {
-        System.out.println("startNavigation");
         ObjectAnimator anim = ObjectAnimator.ofFloat(button,ROTATION, 0f, 1080f);
         anim.setDuration(500);
         anim.start();
@@ -63,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 button.clearAnimation();
-                Uri uri = Uri.parse("http://urwalking.ur.de/navi/index.php?startarea=PT&startnode=43");
+                String url = BASE_URI + START_AREA +areaValue+"&"+START_NODE + nodeValue;
+                Uri uri = Uri.parse(url);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
@@ -71,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showNode(String node) {
-        System.out.println("showNode");
         text.setText(USER_NODE + node);
         ObjectAnimator anim = ObjectAnimator.ofFloat(button, ROTATION, 0f, 1080f);
         anim.setDuration(1000);
