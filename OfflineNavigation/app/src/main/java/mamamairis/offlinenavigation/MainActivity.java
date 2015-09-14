@@ -2,6 +2,7 @@ package mamamairis.offlinenavigation;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Camera;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.opencv.android.CameraBridgeViewBase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button;
     private TextView text;
+
+    private CameraBridgeViewBase cameraView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 button.clearAnimation();
-                String url = BASE_URI + START_AREA +areaValue+"&"+START_NODE + nodeValue;
+                String url = BASE_URI + START_AREA + areaValue + "&" + START_NODE + nodeValue;
                 Uri uri = Uri.parse(url);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);

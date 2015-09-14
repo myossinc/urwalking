@@ -39,7 +39,7 @@
         android:layout_height="75pt"
         android:layout_below="@id/node_name"
         android:layout_alignParentLeft="true"
-        android:background="#AAAA55"/>
+        android:background="#AAAA55" />
 
     <ImageView
         android:id="@+id/matched_image"
@@ -47,6 +47,6 @@
         android:layout_height="75pt"
         android:layout_below="@id/node_name"
         android:layout_alignParentRight="true"
-        android:background="#01777A"/>
+        android:background="#01777A" />
 
 </RelativeLayout>
